@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Изменить языкH3.3.2</string>
+    <string name="theText">Добро пожаловать!</string>
+    <string name="Change">Изменить язык</string>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Русский</item>
+
+    </string-array>
+</resources>
