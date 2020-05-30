@@ -1,10 +1,16 @@
 <resources>
-    <string name="app_name">LanguageChangeH3.3.2</string>
+    <string name="app_name">LanguageColorChangeH3.3.2</string>
     <string name="theText">Welcome to English version</string>
     <string name="Change">Change Language</string>
+    <string name="OK">OK</string>
 
     <string-array name="languages">
         <item>English</item>
         <item>Русский</item>
+    </string-array>
+    <string-array name="colors">
+        <item>Blue</item>
+        <item>Black</item>
+        <item>Green </item>
     </string-array>
 </resources>

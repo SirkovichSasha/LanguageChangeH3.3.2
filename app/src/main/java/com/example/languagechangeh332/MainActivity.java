@@ -15,20 +15,31 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     private Spinner mLanguagesSpinner;
     private Button mChangeLanguageButton;
+    private Spinner mColorsSpinner;
+    private Button mChangeColorButton;
     private String language;
+    public static int sTheme=-1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(sTheme!=-1){
+            setTheme(sTheme);
+        }
         setContentView(R.layout.activity_main);
         init();
-        
+
+
     }
 
     private void init() {
         mLanguagesSpinner=findViewById(R.id.languageSpinner);
         mChangeLanguageButton=findViewById(R.id.langugeChange);
+        mColorsSpinner=findViewById(R.id.colorSpinner);
+        mChangeColorButton=findViewById(R.id.colorChange);
         language=Locale.getDefault().getLanguage();
-        initSpinner();
+        initLanguageSpinner();
+        initColorsSpinner();
         mChangeLanguageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,11 +52,51 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+        mChangeColorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recreate();
+            }
+        });
+    }
+
+    private void initColorsSpinner() {
+        ArrayAdapter<CharSequence> adapterColors = ArrayAdapter.createFromResource(this, R.array.colors, android.R.layout.simple_spinner_item);
+        adapterColors.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mColorsSpinner.setAdapter(adapterColors);
+
+        mColorsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+
+                switch (position)
+                {
+
+                    case 0:
+                        sTheme=R.style.AppTheme;
+                        break;
+                    case 1:
+                        sTheme=R.style.ThemeBlack;
+                        break;
+                    case 2:
+                        sTheme=R.style.ThemeGreen;
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
 
 
-    private void initSpinner() {
+    private void initLanguageSpinner() {
         ArrayAdapter<CharSequence> adapterLanguages = ArrayAdapter.createFromResource(this, R.array.languages, android.R.layout.simple_spinner_item);
         adapterLanguages.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mLanguagesSpinner.setAdapter(adapterLanguages);
