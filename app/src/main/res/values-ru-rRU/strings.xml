@@ -10,6 +10,7 @@
     </string-array>
 
     <string-array name="colors">
+        <item>Не выбран</item>
         <item>синий</item>
         <item>черный</item>
         <item>зеленый</item>

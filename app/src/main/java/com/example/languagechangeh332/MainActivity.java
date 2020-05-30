@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner mLanguagesSpinner;
     private Spinner mColorsSpinner;
     private Button mOkButton;
-    private String language;
+    public static String language="";
     public static int sTheme=-1;
 
     @Override
@@ -25,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
         if(sTheme!=-1){
             setTheme(sTheme);
         }
+         if(language!="")
+         {
+             Locale locale = new Locale(language);
+             Configuration config = new Configuration();
+             config.setLocale(locale);
+             getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+         }
         setContentView(R.layout.activity_main);
         init();
 
@@ -44,10 +51,7 @@ public class MainActivity extends AppCompatActivity {
         mOkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Locale locale = new Locale(language);
-                Configuration config = new Configuration();
-                config.setLocale(locale);
-                getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
                 recreate();
             }
         });
@@ -64,14 +68,17 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (position)
                 {
-
                     case 0:
                         sTheme=R.style.AppTheme;
                         break;
+
                     case 1:
-                        sTheme=R.style.ThemeBlack;
+                        sTheme=R.style.ThemeBlue;
                         break;
                     case 2:
+                        sTheme=R.style.ThemeBlack;
+                        break;
+                    case 3:
                         sTheme=R.style.ThemeGreen;
                         break;
                 }
@@ -110,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                language=Locale.getDefault().getLanguage();
             }
         });
     }
