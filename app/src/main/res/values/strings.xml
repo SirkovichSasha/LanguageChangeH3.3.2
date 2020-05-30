@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">LanguageColorChangeH3.3.2</string>
-    <string name="theText">Welcome to English version</string>
-    <string name="Change">Change Language</string>
     <string name="OK">OK</string>
+    <string name="languageText">Language</string>
+    <string name="colorText">Color</string>
 
     <string-array name="languages">
         <item>English</item>

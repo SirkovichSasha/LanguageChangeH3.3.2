@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Изменить язык и цвет </string>
-    <string name="theText">Добро пожаловать!</string>
-    <string name="Change">Изменить язык</string>
-    <string name="OK">Изменить цвет</string>
+    <string name="OK">OK</string>
+    <string name="languageText">Выберите язык</string>
+    <string name="colorText">Выберите цвет</string>
 
     <string-array name="languages">
         <item>English</item>

@@ -14,9 +14,8 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner mLanguagesSpinner;
-    private Button mChangeLanguageButton;
     private Spinner mColorsSpinner;
-    private Button mChangeColorButton;
+    private Button mOkButton;
     private String language;
     public static int sTheme=-1;
 
@@ -34,30 +33,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         mLanguagesSpinner=findViewById(R.id.languageSpinner);
-        mChangeLanguageButton=findViewById(R.id.langugeChange);
         mColorsSpinner=findViewById(R.id.colorSpinner);
-        mChangeColorButton=findViewById(R.id.colorChange);
+        mOkButton=findViewById(R.id.bOK);
         language=Locale.getDefault().getLanguage();
         initLanguageSpinner();
         initColorsSpinner();
-        mChangeLanguageButton.setOnClickListener(new View.OnClickListener() {
+
+
+
+        mOkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Locale locale = new Locale(language);
                 Configuration config = new Configuration();
                 config.setLocale(locale);
                 getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-                recreate();
-            }
-        });
-
-
-
-
-        mChangeColorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 recreate();
             }
         });
